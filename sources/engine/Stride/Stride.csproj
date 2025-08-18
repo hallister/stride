@@ -30,8 +30,11 @@
     <ProjectReference Include="..\..\core\Stride.Core.Serialization\Stride.Core.Serialization.csproj" />
     <ProjectReference Include="..\..\core\Stride.Core.Mathematics\Stride.Core.Mathematics.csproj" />
     <!-- SharpDX is needed for WIC -->
+
     <PackageReference Include="SharpDX.Direct2D1" Condition="'$(TargetFramework)' == '$(StrideFrameworkUWP)'" />
     <PackageReference Include="System.Drawing.Common" Condition="'$(TargetFramework)' == '$(StrideFramework)'" />
+    <PackageReference Include="SixLabors.ImageSharp" Condition="'$(TargetFramework)' == '$(StrideFramework)'" />
+
   </ItemGroup>
 
   <ItemGroup>
