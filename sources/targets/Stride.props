@@ -18,8 +18,10 @@
     <!--<StrideDefaultGraphicsApiDesignTime>Vulkan</StrideDefaultGraphicsApiDesignTime>-->
 
     <StrideGraphicsApis Condition="('$(StrideGraphicsApis)' == '' Or '$(StrideGraphicsApiDependentBuildAll)' == 'true') And ('$(TargetFramework)' == '$(StrideFramework)' Or '$(TargetFramework)' == '$(StrideFrameworkWindows)')">Direct3D11;Direct3D12;OpenGL;OpenGLES;Vulkan</StrideGraphicsApis>
-
+    <StrideGraphicsApis Condition="$([MSBuild]::IsOSPlatform('OSX'))">OpenGL</StrideGraphicsApis>
+    
     <StrideDefaultGraphicsApi Condition="'$(StrideGraphicsApis)' != ''">$(StrideGraphicsApis.Split(';', StringSplitOptions.RemoveEmptyEntries)[0])</StrideDefaultGraphicsApi>
+    <StrideDefaultGraphicsApi Condition="'$(StridePlatform)' == 'macOS'">OpenGl</StrideDefaultGraphicsApi>
     <StrideDefaultGraphicsApi Condition="'$(TargetFramework)' == '$(StrideFrameworkUWP)'">Direct3D11</StrideDefaultGraphicsApi>
     <StrideDefaultGraphicsApi Condition="'$(TargetFramework)' == '$(StrideFrameworkAndroid)'">OpenGLES</StrideDefaultGraphicsApi>
     <StrideDefaultGraphicsApi Condition="'$(TargetFramework)' == '$(StrideFrameworkiOS)'">OpenGLES</StrideDefaultGraphicsApi>

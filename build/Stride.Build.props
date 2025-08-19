@@ -4,12 +4,17 @@
     <StrideCommonPreSettingsName>Stride</StrideCommonPreSettingsName>
     <StridePlatforms Condition="'$(StridePlatforms)' == '' And '$([MSBuild]::IsOSPlatform(Windows))'">Windows</StridePlatforms>
     <StridePlatforms Condition="'$(StridePlatforms)' == '' And '$([MSBuild]::IsOSPlatform(Linux))'">Linux</StridePlatforms>
+    <StridePlatforms Condition="'$(StridePlatforms)' == '' And '$([MSBuild]::IsOSPlatform(OSX))'">OSX</StridePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(StridePlatform)' == 'Windows'">
     <StrideGraphicsApis Condition="'$(StrideGraphicsApis)' == ''">Direct3D11</StrideGraphicsApis>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(StridePlatform)' == 'Linux'">
+    <StrideGraphicsApis Condition="'$(StrideGraphicsApis)' == ''">OpenGL</StrideGraphicsApis>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(StridePlatform)' == 'OSX'">
     <StrideGraphicsApis Condition="'$(StrideGraphicsApis)' == ''">OpenGL</StrideGraphicsApis>
   </PropertyGroup>
 </Project>

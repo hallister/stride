@@ -77,20 +77,22 @@ namespace Stride.Assets.SpriteFont
                 return GetFontPathWindows(result);
             if (OperatingSystem.IsLinux())
             {
-                var fontPath = GetFontPathLinux(result);
+                var fontPath = GetFontPathLinux(result, "/usr/share/fonts");
                 var defaultFont = GetDefaultFontName();
                 if (fontPath == null && FontName != defaultFont)
                 {
                     result?.Warning($"Cannot find font family '{FontName}'. Loading default font '{defaultFont}' instead");
                     FontName = defaultFont;
-                    fontPath = GetFontPathLinux(result);
+                    fontPath = GetFontPathLinux(result, "/usr/share/fonts");
                 }
                 return fontPath;
             }
+            if (OperatingSystem.IsMacOS())
+                return GetFontPathLinux(result, "/System/Library/Fonts/");
             return null;
         }
 
-        private string GetFontPathLinux(AssetCompilerResult result)
+        private string GetFontPathLinux(AssetCompilerResult result, string path)
         {
             StyleFlags flags = StyleFlags.None;
             if (Style.IsBold())
@@ -98,7 +100,7 @@ namespace Stride.Assets.SpriteFont
             if (Style.IsItalic())
                 flags |= StyleFlags.Italic;
 
-            string systemFontDirectory = "/usr/share/fonts";
+            string systemFontDirectory = path;
             var files = System.IO.Directory.EnumerateFiles(systemFontDirectory, "*.ttf", System.IO.SearchOption.AllDirectories);
 
             var library = new SharpFont.Library();
