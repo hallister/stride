@@ -132,7 +132,6 @@ namespace Stride.Assets
                 Name = PlatformType.macOS.ToString(),
                 IsAvailable = true,
                 TargetFramework = "net8.0",
-                RuntimeIdentifier = "osx",
                 Type = PlatformType.macOS,
             };
             solutionPlatforms.Add(macOSPlatform);
