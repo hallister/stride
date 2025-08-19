@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <StrideNativePathLibsiOS Include="$(MSBuildThisFileDirectory)..\..\..\deps\NativePath\iOS\libDetour.a;$(MSBuildThisFileDirectory)..\..\..\deps\NativePath\iOS\libRecast.a" />
-    <StrideNativePathLibsmacOS Include="$(MSBuildThisFileDirectory)..\..\..\deps\NativePath\iOS\libDetour.a;$(MSBuildThisFileDirectory)..\..\..\deps\NativePath\iOS\libRecast.a" />
+    <StrideNativePathLibsmacOS Include="libDetour.a;libRecast.a" />
     <StrideNativePathLibsLinux Include="libDetour.a;libRecast.a" />
     <StrideNativePathLibsAndroid Include="libDetour.a;libRecast.a" />
   </ItemGroup>
