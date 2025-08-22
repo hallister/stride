@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <StrideNativePathLibsiOS Include="$(MSBuildThisFileDirectory)..\..\..\deps\NativePath\iOS\libCelt.a" />
-    <StrideNativePathLibsmacOS Include="$(MSBuildThisFileDirectory)..\..\..\deps\NativePath\iOS\libCelt.a" />
+    <StrideNativePathLibsmacOS Include="libCelt.a" />
     <StrideNativePathLibsLinux Include="libCelt.a" />
     <StrideNativePathLibsAndroid Include="libCelt.a" />
   </ItemGroup>
